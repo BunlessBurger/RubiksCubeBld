@@ -6,6 +6,9 @@ public class twoByTwo
     char[] solvedState = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X'};
     char[] scrambledState = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X'};
     char[] scrambleNew = new char[solvedState.length];
+    char buffer = 'E';
+    char target = 'V';
+    String fullBuffer = "AER";
     //arrayList because length and elements(A, B, C...) will change
     ArrayList<String> scramble = new ArrayList<String>();
     
@@ -17,21 +20,17 @@ public class twoByTwo
         copyToList(scrambledState,scrambleNew);
         
         //replace white with green
-        //System.out.println(swapDist('w','g'));
         scrambleNew[1] = scrambledState[9];
         scrambleNew[2] = scrambledState[10];
         //blue with white
-        //System.out.println(swapDist('b','w')); ////////-16
-        scrambleNew[16] = scrambledState[2];//-14
-        scrambleNew[19] = scrambledState[1];//-18
+        scrambleNew[16] = scrambledState[2];
+        scrambleNew[19] = scrambledState[1];
         //green with yellow
-        //System.out.println(swapDist('g','y'));
         scrambleNew[9] = scrambledState[21];
         scrambleNew[10] = scrambledState[22];
         //yellow with blue
-        //System.out.println(swapDist('y','b')); /////-4
-        scrambleNew[21] = scrambledState[19];//-2, 17
-        scrambleNew[22] = scrambledState[16];//-6, 18
+        scrambleNew[21] = scrambledState[19];
+        scrambleNew[22] = scrambledState[16];
         //rotate red face
         rotateClockwise(12);
         
@@ -44,7 +43,7 @@ public class twoByTwo
         //create a copy of list scrambledState
         copyToList(scrambledState,scrambleNew);
         
-        if (extra == "'" || extra =="prime"){
+        if (extra.equals("'") || extra.equals("prime")){
             //replace white with blue
             scrambleNew[1] = scrambledState[19];
             scrambleNew[2] = scrambledState[16];
@@ -61,7 +60,7 @@ public class twoByTwo
             rotateCounter(12);
             
             scramble.add("R'");
-        } else if (extra == "2"){
+        } else if (extra.equals("2")){
             //replace white with yellow
             scrambleNew[1] = scrambledState[21];
             scrambleNew[2] = scrambledState[22];
@@ -109,7 +108,7 @@ public class twoByTwo
     public void turnL(String extra){
         copyToList(scrambledState,scrambleNew);
         
-        if (extra == "'" || extra == "prime"){
+        if (extra.equals("'") || extra.equals("prime")){
             //replace white with green
             scrambleNew[0] = scrambledState[8];
             scrambleNew[3] = scrambledState[11];
@@ -126,7 +125,7 @@ public class twoByTwo
             rotateCounter(4);
             
             scramble.add("L'");
-        } else if (extra == "2"){
+        } else if (extra.equals("2")){
             //replace white with yellow
             scrambleNew[0] = scrambledState[20];
             scrambleNew[3] = scrambledState[23];
@@ -152,19 +151,15 @@ public class twoByTwo
         copyToList(scrambledState,scrambleNew);
         
         //replace green with red
-        //System.out.println(swapDist('g','r'));
         scrambleNew[8] = scrambledState[12];
         scrambleNew[9] = scrambledState[13];
         //orange with green
-        //System.out.println(swapDist('o','g'));
         scrambleNew[4] = scrambledState[8];
         scrambleNew[5] = scrambledState[9];
         //blue with orange
-        //System.out.println(swapDist('b','o'));
         scrambleNew[16] = scrambledState[4];
         scrambleNew[17] = scrambledState[5];
         //red with blue
-        //System.out.println(swapDist('r','b'));
         scrambleNew[12] = scrambledState[16];
         scrambleNew[13] = scrambledState[17];
         //rotate white face
@@ -178,7 +173,7 @@ public class twoByTwo
     public void turnU(String extra){
         copyToList(scrambledState,scrambleNew);
         
-        if (extra == "'" || extra == "prime"){
+        if (extra.equals("'") || extra.equals("prime")){
             //replace green with orange
             scrambleNew[8] = scrambledState[4];
             scrambleNew[9] = scrambledState[5];
@@ -195,7 +190,7 @@ public class twoByTwo
             rotateCounter(0);
             
             scramble.add("U'");
-        } else if (extra == "2"){
+        } else if (extra.equals("2")){
             //replace green with blue
             scrambleNew[8] = scrambledState[16];
             scrambleNew[9] = scrambledState[17];
@@ -243,7 +238,7 @@ public class twoByTwo
     public void turnD(String extra){
         copyToList(scrambledState,scrambleNew);
         
-        if (extra == "'" || extra == "prime"){
+        if (extra.equals("'") || extra.equals("prime")){
             //replace orange with green
             scrambleNew[7] = scrambledState[11];
             scrambleNew[6] = scrambledState[10];
@@ -260,7 +255,7 @@ public class twoByTwo
             rotateCounter(20);
             
             scramble.add("D'");
-        } else if (extra == "2"){
+        } else if (extra.equals("2")){
             //replace orange with red
             scrambleNew[7] = scrambledState[15];
             scrambleNew[6] = scrambledState[14];
@@ -306,7 +301,7 @@ public class twoByTwo
     public void turnF(String extra){
         copyToList(scrambledState,scrambleNew);
         
-        if (extra == "'" || extra == "prime"){
+        if (extra.equals("'") || extra.equals("prime")){
             //replace white with red
             scrambleNew[2] = scrambledState[12];
             scrambleNew[3] = scrambledState[15];
@@ -323,7 +318,7 @@ public class twoByTwo
             rotateCounter(8);
             
             scramble.add("F'");
-        } else if (extra == "2"){
+        } else if (extra.equals("2")){
             //replace white with yellow
             scrambleNew[2] = scrambledState[20];
             scrambleNew[3] = scrambledState[21];
@@ -369,7 +364,7 @@ public class twoByTwo
     public void turnB(String extra){
         copyToList(scrambledState,scrambleNew);
         
-        if (extra == "'" || extra == "prime"){
+        if (extra.equals("'") || extra.equals("prime")){
             //replace white with orange
             scrambleNew[1] = scrambledState[4];
             scrambleNew[0] = scrambledState[7];
@@ -386,7 +381,7 @@ public class twoByTwo
             rotateCounter(16);
             
             scramble.add("B'");
-        } else if (extra == "2"){
+        } else if (extra.equals("2")){
             //replace white with yellow
             scrambleNew[1] = scrambledState[23];
             scrambleNew[0] = scrambledState[22];
@@ -430,34 +425,6 @@ public class twoByTwo
     
     
     //OTHER METHODS
-    //swapDist and indexOfColor aren't used, might be used to abstract turnS methods in the future
-    public int swapDist(char start, char end){
-        int startIndex = indexOfColor(start);
-        int endIndex = indexOfColor(end);
-        if (startIndex < endIndex){
-            return Math.abs(startIndex - endIndex);
-        } else{
-            return -1*(startIndex - endIndex);
-        }
-        
-    }
-    public int indexOfColor(char color){
-        if (color == 'o'){
-            return 4;
-        } else if (color == 'g'){
-            return 8;
-        } else if (color == 'r'){
-            return 12;
-        } else if (color == 'b'){
-            return 16;
-        } else if (color == 'y'){
-            return 20;
-        } else {
-            return 0;
-        }
-        
-    }
-    
     //replace listB with listA
     public void copyToList(char[] listA, char[] listB){
         //listA stays the same
@@ -470,8 +437,12 @@ public class twoByTwo
     public char atIndex(int index){
         return scrambledState[index];
     }
+    //return index 0, 1, 2...
+    public int indexOf(char letter){
+        for (int i=0; i<scrambled)
+    }
     
-    //print arraylist
+    //return arraylist
     public String getScramble(){
         String output = "Scramble:";
         for (int i=0; i<scramble.size(); i++){
@@ -479,7 +450,7 @@ public class twoByTwo
         }
         return output;
     }
-    //print array
+    //return array
     public String getState(){
         String output = "State:";
         for (int i=0; i<scrambledState.length; i++){
@@ -495,9 +466,18 @@ public class twoByTwo
         return output;
     }
     
-    //check if cube is solved, doesn't work though
+    //check if cube is solved, return true/false
     public boolean isSolved(){
-        return scrambledState.equals(solvedState);
+        //uncomment this return, make sure to change return type to String
+        //return ("Result: "+ scrambledState.equals(solvedState) + " " + scrambledState.length + " " + solvedState.length);
+        for (int i=0; i<solvedState.length; i++){
+            if (solvedState[i] != scrambledState[i]){
+                //want to test? change return to String and return false + i that it failed at
+                return false;
+            }
+        }
+        return true;
+        
     }
     
     //reset arrayList and arrays to default
@@ -506,21 +486,43 @@ public class twoByTwo
         copyToList(solvedState,scrambledState);
         copyToList(solvedState,scrambleNew);
     }
-    
-    //printAll isn't used anywhere currently, used for testing
-    public void printAll(char[] list){
-        String output = "Full list:";
-        for (int i=0; i<list.length; i++){
-            output += " "+list[i];
-        }
-        System.out.println(output);
+
+    public char[] solved(){
+        return solvedState;
     }
-    public void printAll(ArrayList<String> list){
-        String output = "Full list";
-        for (int i=0; i<list.size(); i++){
-            output += " "+list.get(i);
-        }
-        System.out.println(output);
+    public char[] state(){
+        return scrambledState;
+    }
+    public char getBuffer(){
+        return buffer;
+    }
+    public char getTarget(){
+        return target;
+    }
+    public String getFullBuffer(){
+        return fullBuffer;
     }
 
+    //return corner piece that a letter belongs to
+    public static String getCorner(Character letter){
+        if ("AER".contains(String.valueOf(letter))){
+            return "AER";
+        } else if ("BNQ".contains(String.valueOf(letter))){
+            return "BNQ";
+        } else if ("CJM".contains(String.valueOf(letter))){
+            return "CJM";
+        } else if ("DFI".contains(String.valueOf(letter))){
+            return "DFI";
+        } else if ("UGL".contains(String.valueOf(letter))){
+            return "UGL";
+        } else if ("VKP".contains(String.valueOf(letter))){
+            return "VKP";
+        } else if ("WOT".contains(String.valueOf(letter))){
+            return "WOT";
+        } else if ("XHS".contains(String.valueOf(letter))){
+            return "XHS";
+        } else {
+            return "";
+        }
+    }
 }
